@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .preview-container {
+    margin-top: 20px;
+    width: 100%;
+    height: 2500px;      /* 5 × 500px */
+    border: 1px solid #ccc;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  
+  #imagePreview {
+    display: none;             /* shown once loaded */
+    position: absolute;        /* so we can move it */
+    top: 0;
+    left: 0;
+    transform-origin: top left;/* transform relative to top-left */
+    cursor: grab;
+    user-select: none;
+    /* no width/height here—will use natural image size */
+  }
+  
