@@ -3,15 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Image Upload, Drag & Zoom</title>
+  <title>Image + OMR Group Builder</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
 </head>
 <body>
 
-  <h2>Upload, Drag & Zoom Image</h2>
+  <h2>Upload, Drag & Zoom Image + Add OMR Groups</h2>
   <input type="file" id="imageInput" accept="image/*" />
+  <button id="addGroup">Add Question Group</button>
+  <div class="tools">
+    <button id="bgMove" class="tool active"><box-icon name="chevron-right" color="#fff"></box-icon></button>
+    <button id="grpMove" class="tool"><box-icon name="chevron-right" color="#000"></box-icon></button>
+  </div>
+
   <div class="preview-container">
-    <img id="imagePreview" alt="Image Preview" />
+    <div id="dragWrapper">
+      <img id="imagePreview" alt="Image Preview" />
+      <!-- Groups go here -->
+    </div>
+  </div>
+
+  <!-- Modal for creating a new group -->
+  <div id="groupModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>New Question Group</h3>
+      <label>
+        Options:
+        <select id="optCount">
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </label>
+      <label>
+        Square size (px):
+        <input type="number" id="optSize" min="10" value="50"/>
+      </label>
+      <label>
+        Question #:
+        <input type="text" id="qNumber" />
+      </label>
+      <div class="modal-buttons">
+        <button id="cancelGroup" type="button">Cancel</button>
+        <button id="createGroup" type="button">Create</button>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>

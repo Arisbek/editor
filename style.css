@@ -6,21 +6,130 @@ body {
   .preview-container {
     margin-top: 20px;
     width: 100%;
-    height: 2500px;      /* 5 × 500px */
+    height: 2500px;
     border: 1px solid #ccc;
     position: relative;
     overflow: hidden;
   }
   
-  
-  #imagePreview {
-    display: none;             /* shown once loaded */
-    position: absolute;        /* so we can move it */
+  #dragWrapper {
+    position: absolute;
     top: 0;
     left: 0;
-    transform-origin: top left;/* transform relative to top-left */
+    transform-origin: top left;
     cursor: grab;
-    user-select: none;
-    /* no width/height here—will use natural image size */
   }
   
+  #imagePreview {
+    display: none;
+    user-select: none;
+    pointer-events: none;
+  }
+  
+  .tools {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+  .tool {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ccc;
+    background: #fff;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .tool.active {
+    border-color: blue;
+  }
+  
+  .question-group {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding: 20px 5px 5px 5px;
+    border: 2px solid green;
+    background: rgba(255,255,255,0.5);
+    cursor: move;
+    resize: both;
+    overflow: auto;
+    box-sizing: border-box;
+  }
+  
+  .question-number {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: green;
+    color: white;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 50%;
+  }
+  
+  .square {
+    flex: 1;
+    aspect-ratio: 1;
+    border: 2px solid green;
+    margin-right: 5px;
+    box-sizing: border-box;
+    background: transparent;
+  }
+  .square:last-child {
+    margin-right: 0;
+  }
+  
+  .delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal.hidden {
+    display: none;
+  }
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .modal-content label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
