@@ -118,15 +118,14 @@ body {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
-    width: 280px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
-  .modal-content label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .modal-content label,
+  .modal-content select {
+    width: 100%;
   }
   .modal-buttons {
     display: flex;

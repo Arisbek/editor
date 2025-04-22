@@ -12,6 +12,8 @@
   <h2>Upload, Drag & Zoom Image + Add OMR Groups</h2>
   <input type="file" id="imageInput" accept="image/*" />
   <button id="addGroup">Add Question Group</button>
+  <button id="saveFrame">Save Frame</button>
+  <button id="loadFrameBtn">Load Frame</button>
   <div class="tools">
     <button id="bgMove" class="tool active"><box-icon name="chevron-right" color="#fff"></box-icon></button>
     <button id="grpMove" class="tool"><box-icon name="chevron-right" color="#000"></box-icon></button>
@@ -46,6 +48,18 @@
       <div class="modal-buttons">
         <button id="cancelGroup" type="button">Cancel</button>
         <button id="createGroup" type="button">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for loading a frame -->
+  <div id="loadModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Load Saved Frame</h3>
+      <select id="frameSelect"></select>
+      <div class="modal-buttons">
+        <button id="cancelLoad" type="button">Cancel</button>
+        <button id="confirmLoad" type="button">Load</button>
       </div>
     </div>
   </div>
